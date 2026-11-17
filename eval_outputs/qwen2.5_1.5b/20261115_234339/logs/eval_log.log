@@ -1,0 +1,191 @@
+2026-11-15 23:43:39 - evalscope - INFO: Running with native backend
+2026-11-15 23:43:40 - evalscope - INFO: Dump task config to ./eval_outputs/qwen2.5_1.5b/20261115_234339/configs/task_config.yaml
+2026-11-15 23:43:40 - evalscope - INFO: {
+    "model_id": "qwen2.5-1.5b-instruct",
+    "model_args": {},
+    "model_task": "text_generation",
+    "chat_template": null,
+    "datasets": [
+        "mmlu_pro"
+    ],
+    "dataset_args": {},
+    "dataset_dir": "/home/ivan_poblette/.cache/modelscope/hub/datasets",
+    "dataset_hub": "modelscope",
+    "repeats": 1,
+    "eval_type": "openai_api",
+    "eval_backend": "Native",
+    "eval_config": null,
+    "limit": null,
+    "eval_batch_size": 32,
+    "use_cache": null,
+    "rerun_review": false,
+    "work_dir": "./eval_outputs/qwen2.5_1.5b/20261115_234339",
+    "no_timestamp": false,
+    "enable_progress_tracker": false,
+    "ignore_errors": false,
+    "debug": false,
+    "dry_run": false,
+    "seed": 42,
+    "api_url": "http://127.0.0.1:8801/v1",
+    "api_key": "**********",
+    "timeout": null,
+    "stream": null,
+    "judge": {
+        "strategy": "auto",
+        "models": [],
+        "contract": {
+            "system_prompt": null,
+            "prompt_template": null,
+            "score_mapping": null,
+            "score_type": "pattern"
+        },
+        "repeats": 1,
+        "position_swap": "auto",
+        "aggregation": "mean",
+        "min_valid_judges": 1
+    },
+    "analysis_report": false,
+    "collect_perf": true,
+    "use_sandbox": false,
+    "sandbox_type": "docker",
+    "sandbox_manager_config": {},
+    "evalscope_version": "1.15.0",
+    "model": "qwen2.5-1.5b-instruct",
+    "generation_config": {
+        "batch_size": 32,
+        "max_tokens": 512,
+        "temperature": 0.0
+    },
+    "sandbox": {
+        "enabled": false,
+        "engine": "docker",
+        "default_config": {},
+        "manager_config": {},
+        "pool_size": null
+    },
+    "agent_config": null
+}
+2026-11-15 23:43:40 - evalscope - INFO: Start loading benchmark dataset: mmlu_pro
+2026-11-15 23:43:40 - evalscope - INFO: Loading dataset TIGER-Lab/MMLU-Pro from modelscope > subset: default > split: test ...
+2026-11-15 23:43:59 - evalscope - INFO: Loading dataset TIGER-Lab/MMLU-Pro from modelscope > subset: default > split: validation ...
+2026-11-15 23:44:13 - evalscope - INFO: mmlu_pro: 12032 samples to evaluate (14 subsets)
+2026-11-15 23:44:13 - evalscope - INFO: Subsets of mmlu_pro: ['computer science', 'math', 'chemistry', 'engineering', 'law', 'biology', 'health', 'physics', 'business', 'philosophy', 'economics', 'other', 'psychology', 'history']
+2026-11-15 23:44:13 - evalscope - INFO: Loading model for prediction...
+2026-11-15 23:44:13 - evalscope - INFO: Creating model qwen2.5-1.5b-instruct with eval_type=openai_api base_url=http://127.0.0.1:8801/v1, config={'retries': 5, 'retry_interval': 10, 'batch_size': 32, 'max_tokens': 512, 'temperature': 0.0, 'anthropic_cache_strategy': 'evaluation'}, model_args={}
+2026-11-15 23:44:14 - evalscope - INFO: Model loaded successfully.
+2026-11-15 23:45:13 - evalscope - INFO: Evaluating[mmlu_pro]   8%| 914/12032 [Elapsed: 01:00 < Remaining: 14:42, 12.59it/s]
+2026-11-15 23:46:14 - evalscope - INFO: Evaluating[mmlu_pro]  13%| 1586/12032 [Elapsed: 02:00 < Remaining: 17:25,  9.99it/s]
+2026-11-15 23:47:14 - evalscope - INFO: Evaluating[mmlu_pro]  21%| 2481/12032 [Elapsed: 03:01 < Remaining: 07:55, 20.07it/s]
+2026-11-15 23:48:15 - evalscope - INFO: Evaluating[mmlu_pro]  34%| 4098/12032 [Elapsed: 04:01 < Remaining: 04:32, 29.15it/s]
+2026-11-15 23:49:15 - evalscope - INFO: Evaluating[mmlu_pro]  50%| 5978/12032 [Elapsed: 05:02 < Remaining: 02:07, 47.51it/s]
+2026-11-15 23:50:16 - evalscope - INFO: Evaluating[mmlu_pro]  61%| 7371/12032 [Elapsed: 06:02 < Remaining: 03:57, 19.66it/s]
+2026-11-15 23:51:16 - evalscope - INFO: Evaluating[mmlu_pro]  70%| 8398/12032 [Elapsed: 07:02 < Remaining: 03:44, 16.19it/s]
+2026-11-15 23:52:16 - evalscope - INFO: Evaluating[mmlu_pro]  84%| 10076/12032 [Elapsed: 08:03 < Remaining: 01:12, 27.15it/s]
+2026-11-15 23:53:17 - evalscope - INFO: Evaluating[mmlu_pro] 100%| 11980/12032 [Elapsed: 09:03 < Remaining: 00:01, 44.03it/s]
+2026-11-15 23:53:17 - evalscope - INFO: Evaluating[mmlu_pro] 100%| 12032/12032 [Elapsed: 09:03 < Remaining: 00:00, 53.59it/s]
+2026-11-15 23:53:17 - evalscope - INFO: mmlu_pro: predictions complete, aggregating scores...
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: computer science
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: math
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: chemistry
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: engineering
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: law
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: biology
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: health
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: physics
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: business
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: philosophy
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: economics
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: other
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: psychology
+2026-11-15 23:53:17 - evalscope - INFO: Aggregating scores for subset: history
+2026-11-15 23:53:17 - evalscope - INFO: Generating report...
+2026-11-15 23:53:17 - evalscope - INFO: 
+mmlu_pro report table:
+┌───────────────────────┬───────────┬────────────┬──────────────────┬───────┬───────────┬─────────┐
+│ Model                 │ Dataset   │ Metric     │ Subset           │   Num │   Correct │ Score   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ computer science │   410 │       124 │ 30.2%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ math             │  1351 │       311 │ 23%     │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ chemistry        │  1132 │       203 │ 17.9%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ engineering      │   969 │       241 │ 24.9%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ law              │  1101 │       193 │ 17.5%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ biology          │   717 │       414 │ 57.7%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ health           │   818 │       236 │ 28.8%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ physics          │  1299 │       233 │ 17.9%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ business         │   789 │       186 │ 23.6%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ philosophy       │   499 │       116 │ 23.3%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ economics        │   844 │       333 │ 39.5%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ other            │   924 │       248 │ 26.8%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ psychology       │   798 │       373 │ 46.7%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ history          │   381 │       116 │ 30.5%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ OVERALL          │ 12032 │      3327 │ 27.7%   │
+└───────────────────────┴───────────┴────────────┴──────────────────┴───────┴───────────┴─────────┘ 
+
+2026-11-15 23:53:17 - evalscope - INFO: Skipping report analysis (`analysis_report=False`).
+2026-11-15 23:53:17 - evalscope - INFO: Dump report to: ./eval_outputs/qwen2.5_1.5b/20261115_234339/reports/qwen2.5-1.5b-instruct/mmlu_pro.json 
+
+2026-11-15 23:53:17 - evalscope - INFO: 
+mmlu_pro perf table:
+Model                  Dataset      Num  Avg Lat    Avg TTFT    Avg TPOT    Avg Thpt       Avg In    Avg Out
+---------------------  ---------  -----  ---------  ----------  ----------  -----------  --------  ---------
+qwen2.5-1.5b-instruct  MMLU-Pro   12032  0.738 s    —           —           43.66 tok/s      1404         32
+
+2026-11-15 23:53:17 - evalscope - INFO: Benchmark mmlu_pro evaluation finished.
+2026-11-15 23:53:17 - evalscope - INFO: Running[eval] 100%| 1/1 [Elapsed: 09:37 < Remaining: 00:00, 577.32s/benchmark]
+2026-11-15 23:53:17 - evalscope - INFO: Overall report table: 
+┌───────────────────────┬───────────┬────────────┬──────────────────┬───────┬───────────┬─────────┐
+│ Model                 │ Dataset   │ Metric     │ Subset           │   Num │   Correct │ Score   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ computer science │   410 │       124 │ 30.2%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ math             │  1351 │       311 │ 23%     │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ chemistry        │  1132 │       203 │ 17.9%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ engineering      │   969 │       241 │ 24.9%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ law              │  1101 │       193 │ 17.5%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ biology          │   717 │       414 │ 57.7%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ health           │   818 │       236 │ 28.8%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ physics          │  1299 │       233 │ 17.9%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ business         │   789 │       186 │ 23.6%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ philosophy       │   499 │       116 │ 23.3%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ economics        │   844 │       333 │ 39.5%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ other            │   924 │       248 │ 26.8%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ psychology       │   798 │       373 │ 46.7%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ history          │   381 │       116 │ 30.5%   │
+├───────────────────────┼───────────┼────────────┼──────────────────┼───────┼───────────┼─────────┤
+│ qwen2.5-1.5b-instruct │ MMLU-Pro  │ Accuracy ↑ │ OVERALL          │ 12032 │      3327 │ 27.7%   │
+└───────────────────────┴───────────┴────────────┴──────────────────┴───────┴───────────┴─────────┘ 
+
+2026-11-15 23:53:17 - evalscope - INFO: Overall perf table: 
+Model                  Dataset      Num  Avg Lat    Avg TTFT    Avg TPOT    Avg Thpt       Avg In    Avg Out
+---------------------  ---------  -----  ---------  ----------  ----------  -----------  --------  ---------
+qwen2.5-1.5b-instruct  MMLU-Pro   12032  0.738 s    —           —           43.66 tok/s      1404         32 
+
+2026-11-15 23:53:19 - evalscope - INFO: HTML report generated: /home/ivan_poblette/msts/CUCEI/Advnn/FinalProyect/eval_outputs/qwen2.5_1.5b/20261115_234339/reports/report.html
+2026-11-15 23:53:19 - evalscope - INFO: Finished evaluation for qwen2.5-1.5b-instruct on ['mmlu_pro']
+2026-11-15 23:53:19 - evalscope - INFO: Output directory: ./eval_outputs/qwen2.5_1.5b/20261115_234339

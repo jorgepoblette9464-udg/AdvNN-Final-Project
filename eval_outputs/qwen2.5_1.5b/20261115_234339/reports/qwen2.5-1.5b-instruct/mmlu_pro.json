@@ -1,0 +1,405 @@
+{
+    "schema_version": 2,
+    "name": "qwen2.5-1.5b-instruct@mmlu_pro",
+    "dataset_name": "mmlu_pro",
+    "dataset_pretty_name": "MMLU-Pro",
+    "dataset_description": "\n## Overview\n\nMMLU-Pro is an enhanced version of MMLU with increased difficulty and reasoning requirements. It features 10 answer choices instead of 4 and includes more challenging questions requiring deeper reasoning across 14 diverse domains.\n\n## Task Description\n\n- **Task Type**: Multiple-Choice Question Answering (10 options)\n- **Input**: Question with up to 10 answer choices\n- **Output**: Single correct answer letter (A-J)\n- **Domains**: 14 subjects including science, law, engineering, psychology\n\n## Key Features\n\n- 10 answer choices per question (vs 4 in original MMLU)\n- More challenging questions requiring reasoning\n- Includes Chain-of-Thought (CoT) explanations\n- 14 diverse subjects covered\n- Reduced impact of random guessing (10% vs 25%)\n\n## Evaluation Notes\n\n- Default configuration uses **5-shot** examples\n- Answers should follow \"ANSWER: [LETTER]\" format\n- Uses subject-specific few-shot examples\n- Step-by-step reasoning encouraged\n- Evaluates on test split with validation for few-shot\n",
+    "model_name": "qwen2.5-1.5b-instruct",
+    "metrics": [
+        {
+            "identity": {
+                "name": "accuracy",
+                "aggregation": "mean",
+                "dimensions": {}
+            },
+            "legacy_name": null,
+            "num": 12032,
+            "num_correct": 3327,
+            "score": 0.2765,
+            "macro_score": 0.2765,
+            "categories": [
+                {
+                    "name": [
+                        "default"
+                    ],
+                    "num": 12032,
+                    "num_correct": 3327,
+                    "score": 0.2765,
+                    "macro_score": 0.2917,
+                    "subsets": [
+                        {
+                            "name": "computer science",
+                            "score": 0.3024,
+                            "num": 410,
+                            "num_correct": 124,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "math",
+                            "score": 0.2302,
+                            "num": 1351,
+                            "num_correct": 311,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "chemistry",
+                            "score": 0.1793,
+                            "num": 1132,
+                            "num_correct": 203,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "engineering",
+                            "score": 0.2487,
+                            "num": 969,
+                            "num_correct": 241,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "law",
+                            "score": 0.1753,
+                            "num": 1101,
+                            "num_correct": 193,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "biology",
+                            "score": 0.5774,
+                            "num": 717,
+                            "num_correct": 414,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "health",
+                            "score": 0.2885,
+                            "num": 818,
+                            "num_correct": 236,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "physics",
+                            "score": 0.1794,
+                            "num": 1299,
+                            "num_correct": 233,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "business",
+                            "score": 0.2357,
+                            "num": 789,
+                            "num_correct": 186,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "philosophy",
+                            "score": 0.2325,
+                            "num": 499,
+                            "num_correct": 116,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "economics",
+                            "score": 0.3945,
+                            "num": 844,
+                            "num_correct": 333,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "other",
+                            "score": 0.2684,
+                            "num": 924,
+                            "num_correct": 248,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "psychology",
+                            "score": 0.4674,
+                            "num": 798,
+                            "num_correct": 373,
+                            "metadata": null,
+                            "is_aggregate": false
+                        },
+                        {
+                            "name": "history",
+                            "score": 0.3045,
+                            "num": 381,
+                            "num_correct": 116,
+                            "metadata": null,
+                            "is_aggregate": false
+                        }
+                    ]
+                }
+            ],
+            "semantics": {
+                "semantic_id": "quality.accuracy.ratio",
+                "metric_name": "Accuracy",
+                "display_name": null,
+                "kind": "quality",
+                "direction": "higher_is_better",
+                "raw_unit": null,
+                "value_range": {
+                    "min": 0.0,
+                    "max": 1.0
+                },
+                "display_kind": "percent",
+                "display_multiplier": 100.0,
+                "display_unit": "%",
+                "display_precision": 1
+            }
+        }
+    ],
+    "analysis": "N/A",
+    "perf_metrics": {
+        "summary": {
+            "n_samples": 12032,
+            "latency": {
+                "mean": 0.737806,
+                "std": 1.820235,
+                "min": 0.106748,
+                "25%": 0.205459,
+                "50%": 0.245572,
+                "75%": 0.322497,
+                "90%": 0.443269,
+                "99%": 9.291161,
+                "max": 10.909235
+            },
+            "throughput": {
+                "avg_output_tps": 43.66,
+                "avg_req_ps": 1.3554
+            },
+            "usage": {
+                "input_tokens": {
+                    "mean": 1403.566074,
+                    "std": 318.821321,
+                    "min": 888.0,
+                    "25%": 1146.75,
+                    "50%": 1333.5,
+                    "75%": 1616.0,
+                    "90%": 1828.0,
+                    "99%": 2331.69,
+                    "max": 2890.0
+                },
+                "output_tokens": {
+                    "mean": 32.216257,
+                    "std": 103.24992,
+                    "min": 5.0,
+                    "25%": 5.0,
+                    "50%": 5.0,
+                    "75%": 5.0,
+                    "90%": 5.0,
+                    "99%": 512.0,
+                    "max": 512.0
+                },
+                "total_tokens": {
+                    "mean": 1435.78233,
+                    "std": 347.881657,
+                    "min": 893.0,
+                    "25%": 1171.0,
+                    "50%": 1354.0,
+                    "75%": 1638.0,
+                    "90%": 1882.0,
+                    "99%": 2391.0,
+                    "max": 2895.0
+                },
+                "total_input_tokens": 16887707,
+                "total_output_tokens": 387626,
+                "total_tokens_count": 17275333
+            }
+        },
+        "coverage": {
+            "requests_with_metrics": 12032,
+            "total_requests": 12032
+        },
+        "metric_semantics": {
+            "n_samples": {
+                "semantic_id": "diagnostic.count.items",
+                "metric_name": "Samples",
+                "display_name": null,
+                "kind": "diagnostic",
+                "direction": "none",
+                "raw_unit": null,
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": null,
+                "display_precision": 0
+            },
+            "latency": {
+                "semantic_id": "perf.latency.seconds",
+                "metric_name": "Latency",
+                "display_name": null,
+                "kind": "quality",
+                "direction": "lower_is_better",
+                "raw_unit": "s",
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": "s",
+                "display_precision": 3
+            },
+            "throughput.avg_output_tps": {
+                "semantic_id": "perf.throughput.tokens_per_second",
+                "metric_name": "Output Throughput",
+                "display_name": null,
+                "kind": "quality",
+                "direction": "higher_is_better",
+                "raw_unit": "tok/s",
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": "tok/s",
+                "display_precision": 2
+            },
+            "throughput.avg_req_ps": {
+                "semantic_id": "perf.throughput.requests_per_second",
+                "metric_name": "Request Throughput",
+                "display_name": null,
+                "kind": "quality",
+                "direction": "higher_is_better",
+                "raw_unit": "req/s",
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": "req/s",
+                "display_precision": 2
+            },
+            "usage.input_tokens": {
+                "semantic_id": "diagnostic.count.items",
+                "metric_name": "Input Tokens",
+                "display_name": null,
+                "kind": "diagnostic",
+                "direction": "none",
+                "raw_unit": null,
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": null,
+                "display_precision": 0
+            },
+            "usage.output_tokens": {
+                "semantic_id": "diagnostic.count.items",
+                "metric_name": "Output Tokens",
+                "display_name": null,
+                "kind": "diagnostic",
+                "direction": "none",
+                "raw_unit": null,
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": null,
+                "display_precision": 0
+            },
+            "usage.total_tokens": {
+                "semantic_id": "diagnostic.count.items",
+                "metric_name": "Total Tokens",
+                "display_name": null,
+                "kind": "diagnostic",
+                "direction": "none",
+                "raw_unit": null,
+                "value_range": null,
+                "display_kind": "number",
+                "display_multiplier": null,
+                "display_unit": null,
+                "display_precision": 0
+            }
+        }
+    },
+    "primary_metric_identity": {
+        "name": "accuracy",
+        "aggregation": "mean",
+        "dimensions": {}
+    },
+    "primary_metric_unavailable_reason": null,
+    "judge_summary": null,
+    "execution_summary": {
+        "requested": 12032,
+        "succeeded": 12032,
+        "errored": 0,
+        "incomplete": false,
+        "subsets": {
+            "computer science": {
+                "requested": 410,
+                "succeeded": 410,
+                "errored": 0
+            },
+            "math": {
+                "requested": 1351,
+                "succeeded": 1351,
+                "errored": 0
+            },
+            "chemistry": {
+                "requested": 1132,
+                "succeeded": 1132,
+                "errored": 0
+            },
+            "engineering": {
+                "requested": 969,
+                "succeeded": 969,
+                "errored": 0
+            },
+            "law": {
+                "requested": 1101,
+                "succeeded": 1101,
+                "errored": 0
+            },
+            "biology": {
+                "requested": 717,
+                "succeeded": 717,
+                "errored": 0
+            },
+            "health": {
+                "requested": 818,
+                "succeeded": 818,
+                "errored": 0
+            },
+            "physics": {
+                "requested": 1299,
+                "succeeded": 1299,
+                "errored": 0
+            },
+            "business": {
+                "requested": 789,
+                "succeeded": 789,
+                "errored": 0
+            },
+            "philosophy": {
+                "requested": 499,
+                "succeeded": 499,
+                "errored": 0
+            },
+            "economics": {
+                "requested": 844,
+                "succeeded": 844,
+                "errored": 0
+            },
+            "other": {
+                "requested": 924,
+                "succeeded": 924,
+                "errored": 0
+            },
+            "psychology": {
+                "requested": 798,
+                "succeeded": 798,
+                "errored": 0
+            },
+            "history": {
+                "requested": 381,
+                "succeeded": 381,
+                "errored": 0
+            }
+        }
+    },
+    "num": 12032
+}
