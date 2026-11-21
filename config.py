@@ -27,3 +27,32 @@ GENERATION_CONFIG = {
     "max_tokens": 512,          # Enough headroom for MMLU-Pro CoT reasoning
     "stream": False,            # Single response per prompt to reduce CPU overhead
 }
+
+
+# --------------------------------------------------------------------------- #
+# Quantization (torchao) -- see docs/quantization.md
+# --------------------------------------------------------------------------- #
+# Available schemes (python run_quantize.py --list):
+#   int8_weight_only                  W8A16, ~2x smaller, safest default
+#   int4_weight_only                  W4A16 group-wise, ~4x smaller (sm80+)
+#   int8_dynamic_act_int8_weight      W8A8, faster for large batches (sm75+)
+#   float8_dynamic_act_float8_weight  FP8, needs Ada/Hopper (sm89+) -> NOT on Ampere
+QUANT_SCHEME = "int8_weight_only"
+QUANT_GROUP_SIZE = 128                  # Only used by int4_weight_only
+QUANT_DTYPE = "bfloat16"                # Dtype for non-quantized parts / activations
+QUANT_OUTPUT_ROOT = "~/nxp/models/LLMs/quantized"
+QUANT_OUTPUT_DIR = os.path.join(QUANT_OUTPUT_ROOT, f"{SERVED_MODEL_NAME}-{QUANT_SCHEME}")
+
+# Set to True to serve + evaluate the quantized checkpoint instead of the base model.
+# run_pipeline.py will create the checkpoint first if it does not exist yet.
+SERVE_QUANTIZED = False
+
+if SERVE_QUANTIZED:
+    BASE_MODEL_ID = MODEL_ID
+    MODEL_ID = QUANT_OUTPUT_DIR
+    SERVED_MODEL_NAME = f"{SERVED_MODEL_NAME}-{QUANT_SCHEME}"
+    VLLM_QUANTIZATION = "torchao"       # Passed to vLLM as --quantization
+    WORK_DIR = f"./eval_outputs/{SERVED_MODEL_NAME}"  # Keep results apart from the baseline
+else:
+    BASE_MODEL_ID = MODEL_ID
+    VLLM_QUANTIZATION = ""

@@ -14,7 +14,15 @@ print(f'HOST={config.HOST}')
 print(f'PORT={config.PORT}')
 print(f'GPU_UTIL={config.GPU_MEM_UTILIZATION}')
 print(f'MAX_LEN={config.MAX_MODEL_LEN}')
+print(f'QUANT_METHOD={config.VLLM_QUANTIZATION}')
 ")
+
+# Extra vLLM args, e.g. --quantization torchao when SERVE_QUANTIZED=True in config.py
+EXTRA_ARGS=()
+if [ -n "$QUANT_METHOD" ]; then
+    echo "Serving quantized checkpoint ($QUANT_METHOD): $MODEL_ID"
+    EXTRA_ARGS+=(--quantization "$QUANT_METHOD")
+fi
 
 echo "Starting vLLM on GPU $CUDA_VISIBLE_DEVICES with $GPU_UTIL VRAM cap and $OMP_NUM_THREADS CPU threads..."
 export VLLM_USE_V1=0
@@ -34,5 +42,6 @@ python3 -m vllm.entrypoints.openai.api_server \
     --gpu-memory-utilization "$GPU_UTIL" \
     --max-model-len "$MAX_LEN" \
     --dtype auto \
-    --trust-remote-code 
+    --trust-remote-code \
+    "${EXTRA_ARGS[@]}"
     

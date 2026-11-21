@@ -25,7 +25,28 @@ def wait_for_server(url: str, timeout: int = 300) -> bool:
     return False
 
 
+def ensure_quantized_checkpoint() -> None:
+    """If serving a quantized model, create the checkpoint first when it is missing.
+
+    Runs in a separate process so all GPU memory is released before vLLM starts.
+    """
+    if not config.SERVE_QUANTIZED:
+        return
+    from quantization.quantizer import is_quantized_checkpoint
+
+    if is_quantized_checkpoint(config.QUANT_OUTPUT_DIR):
+        print(f"[ORCHESTRATOR] Using existing quantized checkpoint: {config.QUANT_OUTPUT_DIR}")
+        return
+    print(f"[ORCHESTRATOR] Quantized checkpoint not found, creating it ({config.QUANT_SCHEME})...")
+    result = subprocess.run([sys.executable, "run_quantize.py", "--overwrite"])
+    if result.returncode != 0:
+        print("[ERROR] Quantization failed; aborting pipeline.", file=sys.stderr)
+        sys.exit(result.returncode)
+
+
 def main():
+    ensure_quantized_checkpoint()
+
     # Launch vLLM in its own process group so we can cleanly kill child workers on exit
     server_proc = subprocess.Popen(
         ["bash", "./start_server.sh"],
